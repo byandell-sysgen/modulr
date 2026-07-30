@@ -1,0 +1,121 @@
+# modulr Developer Guide Overview & Architecture
+
+## modulr Developer Guide Overview & Architecture
+
+### Package Purpose & Ecosystem Role
+
+**modulr** (v0.3.1) is an R package within the `foundr` ecosystem
+providing Weighted Gene Co-expression Network Analysis (WGCNA) module
+creation, soft-thresholding topology analysis, topological overlap
+matrix (TOM) calculations, and eigentrait extraction for multiparent
+genetic cross data (specifically Collaborative Cross mouse studies).
+
+- **Author:** Brian S. Yandell (<brian.yandell@wisc.edu>)
+- **License:** GPL-3
+- **Minimum R Version:** ≥ 3.5.0
+
+Related packages in the ecosystem:
+
+- **`foundrHarmony`**: Data ingestion, normalization (`nqrank()`),
+  domain-specific spreadsheet parsers (`userHarmony`), and multi-dataset
+  binding (`bind_traits()`).
+- **`modulr`**: Standardizing WGCNA co-expression trait module creation,
+  soft-thresholding topology estimation, TOM dissimilarity matrices, and
+  eigentrait extraction.
+- **`foundr`**: Core statistical analysis, linear model estimation,
+  orthogonal variance partitioning (`partition()`), summary stats
+  (`strainstats()`), S3 trait classes, and `ggplot2` visualizations.
+- **`foundrShiny`**: Interactive Shiny web application providing modular
+  UI components and reactive visual analysis panels.
+
+------------------------------------------------------------------------
+
+### High-Level Package Architecture & Data Flow
+
+The `modulr` package structures network module construction from
+harmonized long-format data frames or expression matrices into a clean
+pipeline:
+
+``` mermaid
+flowchart TD
+    rawInput["Harmonized Trait Data (foundrHarmony long format or matrix)"]
+    pivot["wgcna_pivot() Wide Matrix & Sample ID Extraction"]
+
+    subgraph wgcnaPipeline ["WGCNA Processing Core"]
+        params["wgcna_params() Parameter Validation"]
+        topo["wgcna_topology() Soft-Thresholding Power Fit"]
+        dist["wgcna_dist() TOM Dissimilarity Matrix (1 - TOMsimilarity)"]
+        clust["fastcluster::hclust() Hierarchical Clustering Tree"]
+        cut["dynamicTreeCut::cutreeDynamic() Initial Dynamic Tree Cut"]
+        merge["WGCNA::mergeCloseModules() Merge Similar eigentraits"]
+        kME["module_factors() & WGCNA::signedKME() Module Membership"]
+    end
+
+    s3Obj["wgcnaModules S3 Object (ID, dendro, eigen, modules)"]
+    listofObj["listof_wgcnaModules S3 List (purrr::map across subsets)"]
+    foundrRoutines["foundr Core Routines (foundr::partition(), foundr::strainstats())"]
+
+    rawInput --> pivot
+    pivot --> params
+    params --> topo
+    params --> dist
+    dist --> clust
+    clust --> cut
+    cut --> merge
+    merge --> kME
+    kME --> s3Obj
+    s3Obj --> listofObj
+    s3Obj --> foundrRoutines
+    listofObj --> foundrRoutines
+
+    classDef input fill:#1f77b4,stroke:#333,stroke-width:2px,color:#fff
+    classDef core fill:#ff7f0e,stroke:#333,stroke-width:2px,color:#fff
+    classDef output fill:#2ca02c,stroke:#333,stroke-width:2px,color:#fff
+    classDef foundr fill:#d62728,stroke:#333,stroke-width:2px,color:#fff
+
+    class rawInput input
+    class pivot,params,topo,dist,clust,cut,merge,kME core
+    class s3Obj,listofObj output
+    class foundrRoutines foundr
+```
+
+------------------------------------------------------------------------
+
+### Developer Quick Start
+
+#### Local Development Workflow
+
+To inspect, modify, or test `modulr` locally:
+
+``` r
+
+# 1. Load local package sources dynamically
+devtools::load_all()
+
+# 2. Re-generate documentation & NAMESPACE
+devtools::document()
+
+# 3. Run package check
+devtools::check(cran = FALSE, vignettes = FALSE)
+```
+
+------------------------------------------------------------------------
+
+### Developer Guide Navigation
+
+This Developer Guide is organized into the following detailed
+sub-articles:
+
+1.  **[Developer Guide Overview &
+    Architecture](https://byandell-sysgen.github.io/modulr/articles/devel_guide/index.md)**:
+    High-level package introduction, ecosystem role, quick start
+    commands, and top-level architecture flowchart.
+2.  **[Function Index & WGCNA Trait Module
+    Breakdown](https://byandell-sysgen.github.io/modulr/articles/devel_guide/modules.md)**:
+    Exhaustive breakdown of all package functions and technical
+    specification for organizing WGCNA objects for `foundr`.
+3.  **[Data Pipeline & WGCNA Harmonization
+    Methodology](https://byandell-sysgen.github.io/modulr/articles/devel_guide/data_flow.md)**:
+    Technical specification of matrix pivoting, sample ID
+    standardization, TOM distance calculation, dynamic tree cutting, and
+    S3 class structures (`wgcnaModules`, `listof_wgcnaModules`).

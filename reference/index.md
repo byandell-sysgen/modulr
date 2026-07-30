@@ -1,0 +1,53 @@
+# Package index
+
+## WGCNA Module Creation & Execution
+
+Core pipeline functions for building WGCNA co-expression trait modules
+and eigentraits
+
+- [`wgcnaModules()`](https://byandell-sysgen.github.io/modulr/reference/wgcnaModules.md)
+  [`listof_wgcnaModules()`](https://byandell-sysgen.github.io/modulr/reference/wgcnaModules.md)
+  [`plot_wgcnaModules()`](https://byandell-sysgen.github.io/modulr/reference/wgcnaModules.md)
+  [`plot(`*`<wgcnaModules>`*`)`](https://byandell-sysgen.github.io/modulr/reference/wgcnaModules.md)
+  : Create WGCNA Modules
+- [`wgcna_harmonize()`](https://byandell-sysgen.github.io/modulr/reference/wgcna_harmonize.md)
+  : Harmonize WGCNA module
+- [`load_wgcna()`](https://byandell-sysgen.github.io/modulr/reference/load_wgcna.md)
+  : Load WGCNA object
+- [`module_factors()`](https://byandell-sysgen.github.io/modulr/reference/module_factors.md)
+  : Extract module information from kME and colors
+
+## Data Pivoting & Sample Identification
+
+Pivoting long harmonized data frames into wide matrices and
+standardizing sample identifiers
+
+- [`wgcna_pivot()`](https://byandell-sysgen.github.io/modulr/reference/wgcna_pivot.md)
+  : Pivot WGCNA object
+- [`wgcna_ID()`](https://byandell-sysgen.github.io/modulr/reference/wgcna_ID.md)
+  : ID data frame from
+
+## Topology & Dissimilarity Calculations
+
+Soft-thresholding power estimation and TOM dissimilarity matrix
+computation
+
+- [`wgcna_topology()`](https://byandell-sysgen.github.io/modulr/reference/wgcna_topology.md)
+  [`ggplot_wgcna_topology()`](https://byandell-sysgen.github.io/modulr/reference/wgcna_topology.md)
+  : WGCNA topology
+- [`wgcna_dist()`](https://byandell-sysgen.github.io/modulr/reference/wgcna_dist.md)
+  : Topological Overlap Matrix (TOM) Dissimilarity
+- [`wgcna_params()`](https://byandell-sysgen.github.io/modulr/reference/wgcna_params.md)
+  : Parameters of WGCNA object
+
+## Visualization & Fallbacks
+
+Plotting dendrograms and fallback ggplot displays
+
+- [`wgcnaModules()`](https://byandell-sysgen.github.io/modulr/reference/wgcnaModules.md)
+  [`listof_wgcnaModules()`](https://byandell-sysgen.github.io/modulr/reference/wgcnaModules.md)
+  [`plot_wgcnaModules()`](https://byandell-sysgen.github.io/modulr/reference/wgcnaModules.md)
+  [`plot(`*`<wgcnaModules>`*`)`](https://byandell-sysgen.github.io/modulr/reference/wgcnaModules.md)
+  : Create WGCNA Modules
+- [`plot_null()`](https://byandell-sysgen.github.io/modulr/reference/plot_null.md)
+  : Plot Null Message Graphic
