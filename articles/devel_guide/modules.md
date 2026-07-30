@@ -7,7 +7,7 @@ functions in **modulr** and details how WGCNA trait modules and
 `wgcnaModules` objects are organized for downstream `foundr` analysis
 routines.
 
-> \[!NOTE\] In `modulr`, **“modules”** refer specifically to WGCNA
+> **NOTE:** In `modulr`, **“modules”** refer specifically to WGCNA
 > co-expression clusters of highly correlated phenotypic traits or gene
 > expressions summarized by eigentraits.
 
