@@ -1,0 +1,50 @@
+url: https://byandell-sysgen.github.io/modulr
+
+template:
+  bootstrap: 5
+
+navbar:
+  structure:
+    left: [intro, reference, articles, news]
+    right: [github]
+  components:
+    articles:
+      text: Developer Guide
+      menu:
+        - text: "Developer Guide Overview & Architecture"
+          href: articles/devel_guide/index.html
+        - text: "Function Index & WGCNA Trait Module Breakdown"
+          href: articles/devel_guide/modules.html
+        - text: "Data Pipeline & WGCNA Harmonization Methodology"
+          href: articles/devel_guide/data_flow.html
+
+reference:
+  - title: "WGCNA Module Creation & Execution"
+    desc: "Core pipeline functions for building WGCNA co-expression trait modules and eigentraits"
+    contents:
+      - wgcnaModules
+      - listof_wgcnaModules
+      - wgcna_harmonize
+      - load_wgcna
+      - module_factors
+
+  - title: "Data Pivoting & Sample Identification"
+    desc: "Pivoting long harmonized data frames into wide matrices and standardizing sample identifiers"
+    contents:
+      - wgcna_pivot
+      - wgcna_ID
+
+  - title: "Topology & Dissimilarity Calculations"
+    desc: "Soft-thresholding power estimation and TOM dissimilarity matrix computation"
+    contents:
+      - wgcna_topology
+      - ggplot_wgcna_topology
+      - wgcna_dist
+      - wgcna_params
+
+  - title: "Visualization & Fallbacks"
+    desc: "Plotting dendrograms and fallback ggplot displays"
+    contents:
+      - plot_wgcnaModules
+      - plot.wgcnaModules
+      - plot_null

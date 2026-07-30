@@ -25,9 +25,9 @@ wgcna_harmonize(
 
 \item{annot}{annotation file (ignored if `NULL`)}
 
-\item{force}{force creation if `TRUE`}
+\item{harmonizeddir}{name of directory to save `RDS` object in its `moddir`}
 
-\item{harmonizedir}{name of directory to save `RDS` object in its `moddir`}
+\item{force}{force creation if `TRUE`}
 }
 \value{
 invisible file name for created object

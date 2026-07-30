@@ -14,6 +14,7 @@
 #' @importFrom fastcluster hclust
 #' @importFrom dynamicTreeCut cutreeDynamic
 #' @importFrom stringr str_remove
+#' @importFrom stats as.dist
 #'
 wgcnaModules <- function(object, params = NULL, ...) {
 
@@ -86,8 +87,7 @@ wgcnaModules <- function(object, params = NULL, ...) {
 
 #' Create List of WGCNA Modules
 #'
-#' @param traitData data frame from `foundr::traitData()`
-#' @param traitSignal data frame from `foundr::partition()`
+#' @param traitContr data frame of trait contributions
 #' @param params list of parameters for WGCNA routines
 #'
 #' @return object of class `listof_wgcnaModules`
@@ -135,6 +135,8 @@ old_listof_wgcnaModules <- function(traitData, traitSignal, params = NULL) {
   attr(out, "params") <- attr(out[[1]], "params")
   out
 }
+#' @param x object of class `wgcnaModules`
+#' @param main title for dendrogram plot
 #' @export
 #' @rdname wgcnaModules
 #' @importFrom WGCNA plotDendroAndColors

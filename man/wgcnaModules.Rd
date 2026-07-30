@@ -22,9 +22,11 @@ plot_wgcnaModules(x, main = "Gene dendrogram and module colors", ...)
 
 \item{...}{additional parameters}
 
-\item{traitData}{data frame from `foundr::traitData()`}
+\item{traitContr}{data frame of trait contributions}
 
-\item{traitSignal}{data frame from `foundr::partition()`}
+\item{x}{object of class `wgcnaModules`}
+
+\item{main}{title for dendrogram plot}
 }
 \value{
 object of class wgcnaModules

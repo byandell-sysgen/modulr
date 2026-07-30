@@ -40,3 +40,6 @@ vignettes/*.pdf
 
 *.Rproj
 inst/WGCNA
+
+# pkgdown site
+docs/

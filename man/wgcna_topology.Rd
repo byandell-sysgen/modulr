@@ -16,7 +16,7 @@ wgcna_topology(
 ggplot_wgcna_topology(object, cutoff = 0.9, ...)
 }
 \arguments{
-\item{object}{object of class}
+\item{object}{object of class `wgcna_topology`}
 
 \item{powers}{vector of beta values}
 
@@ -24,7 +24,7 @@ ggplot_wgcna_topology(object, cutoff = 0.9, ...)
 
 \item{verbose}{level of verbose messages}
 
-\item{...}{}
+\item{...}{additional parameters (ignored)}
 
 \item{cutoff}{explained variation cutoff}
 }

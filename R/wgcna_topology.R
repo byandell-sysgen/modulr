@@ -32,9 +32,9 @@ wgcna_topology <- function(object,
 }
 #' GGplot of WGCNA Topology
 #'
-#' @param object object of class  
+#' @param object object of class `wgcna_topology`
 #' @param cutoff explained variation cutoff
-#' @param ... 
+#' @param ... additional parameters (ignored)
 #'
 #' @return ggplot object
 #' @export

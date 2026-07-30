@@ -8,7 +8,7 @@
 #' @param modRdata file name ending with `.Rdata`
 #' @param params list of parameters
 #' @param annot annotation file (ignored if `NULL`)
-#' @param harmonizedir name of directory to save `RDS` object in its `moddir`
+#' @param harmonizeddir name of directory to save `RDS` object in its `moddir`
 #' @param force force creation if `TRUE`
 #'
 #' @return invisible file name for created object

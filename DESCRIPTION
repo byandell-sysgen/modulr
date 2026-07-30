@@ -6,11 +6,15 @@ Description: Wrappers for WGNCA module creation.
 Authors@R: c(person("Brian S Yandell",
                 role = c("aut", "cre"),
                 email = "brian.yandell@wisc.edu"))
+URL: https://byandell-sysgen.github.io/modulr
 Depends:
     R (>= 3.5.0)
 Imports:
-    dplyr, tidyr, purrr, tibble, WGCNA, fastcluster, dynamicTreeCut
+    cowplot, dplyr, dynamicTreeCut, fastcluster, foundr, ggplot2, purrr,
+    rlang, stringr, tibble, tidyr, WGCNA
+Remotes:
+    byandell-sysgen/foundr
 LazyData: true
 License: GPL-3
 Encoding: UTF-8
-RoxygenNote: 7.3.1
+Config/roxygen2/version: 8.0.0
