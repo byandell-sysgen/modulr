@@ -2,6 +2,28 @@ url: https://byandell-sysgen.github.io/modulr
 
 template:
   bootstrap: 5
+  includes:
+    in_header: |
+      <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+      <style>
+        pre.mermaid {
+          background: transparent !important;
+          border: none !important;
+          box-shadow: none !important;
+          text-align: center;
+        }
+      </style>
+      <script>
+        document.addEventListener("DOMContentLoaded", function() {
+          document.querySelectorAll("pre.mermaid").forEach(function(el) {
+            var code = el.querySelector("code");
+            if (code) {
+              el.textContent = code.textContent;
+            }
+          });
+          mermaid.initialize({ startOnLoad: true });
+        });
+      </script>
 
 navbar:
   structure:
@@ -17,6 +39,13 @@ navbar:
           href: articles/devel_guide/modules.html
         - text: "Data Pipeline & WGCNA Harmonization Methodology"
           href: articles/devel_guide/data_flow.html
+
+articles:
+  - title: "Developer Guides"
+    contents:
+      - "devel_guide/index"
+      - "devel_guide/modules"
+      - "devel_guide/data_flow"
 
 reference:
   - title: "WGCNA Module Creation & Execution"

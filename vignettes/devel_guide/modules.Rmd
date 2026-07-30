@@ -18,7 +18,7 @@ knitr::opts_chunk$set(
 
 This document provides a comprehensive technical reference for all functions in **modulr** and details how WGCNA trait modules and `wgcnaModules` objects are organized for downstream `foundr` analysis routines.
 
-> [!NOTE]
+> **NOTE:**
 > In `modulr`, **"modules"** refer specifically to WGCNA co-expression clusters of highly correlated phenotypic traits or gene expressions summarized by eigentraits.
 
 ---
