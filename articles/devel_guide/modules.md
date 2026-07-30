@@ -26,7 +26,7 @@ or strain summary statistics via
 #### Integration Flow with `foundr`
 
 ``` mermaid
-flowchart LR
+flowchart TD
     subgraph modulrPkg ["modulr Package"]
         wgcnaMod["wgcnaModules() / load_wgcna()"]
         eigenExtract["out$eigen (Eigentraits Data Frame)"]
